@@ -20,7 +20,7 @@ concatenarlas guardando el resultado en una 3er variable.
 var firstName='David ';
 var lastName='Arroyo';
 
-var User= firstName+lastName;
+var User= firstName.concat(lastName);
 console.log(User);
 
 /*
@@ -92,7 +92,7 @@ y el operador +).
 //En este ejercicio pense que el uso de indexOf era para que se visualise el espacio entre las palabras pero me devolvia -1, como si no hubiera encontrado el indice
 
 var string6='minnesota timberwolves'
-var string7= (string6.substring(0,1)).toUpperCase()+(string6.substring(1,9)).toLowerCase()+ string6.indexOf(' ')+ (string6.substring(11,12)).toUpperCase()+(string6.substring(11,23)).toLowerCase();//¿How I can get space beetween into the word?
+var string7= (string6.substring(0,1)).toUpperCase()+(string6.substring(1,9)).toLowerCase()+ (' ')+ (string6.substring(11,12)).toUpperCase()+(string6.substring(11,23)).toLowerCase();//¿How I can get space beetween into the word?
 console.log(string7);
 
 //3)Arrays
@@ -104,8 +104,7 @@ a) Dado el siguiente array: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Juni
 
 var meses=["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", 
 "Noviembre", "Diciembre"];
-console.log(meses[4]);
-console.log(meses[10]);
+console.log(meses[4],meses[10]);
 
 /*
 b) Ordenar el array de meses alfabéticamente y mostrarlo por consola (utilizar sort).
@@ -143,7 +142,11 @@ console.log(meses.join('-'));
 /*
 g) Crear una copia del array de meses que contenga desde Mayo hasta Noviembre (utilizar slice).
 */
-//tengo un problema con este, porque en consola me aparece el arreglo pero con todos los meses desordenados por los cambios que hice en los ejercicios anteriores, como puedo invocar al arreglo original?
+var nuevoMeses=["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", 
+"Noviembre", "Diciembre"];
+
+
+console.log(nuevoMeses.slice(4,-1));
 
 //If else
 
@@ -153,17 +156,16 @@ mayor o igual que 0,5 mostrar una alerta con el mensaje “Greater than 0,5” y
 el mensaje “Lower than 0,5”
 */
 
-function random(){
-    var aleatorio= math.random();
- return aleatorio
-}
+function generateRandom(){  
+    var random= Math.random();
+    if (random >= 0.5) {
+    console.log("Greater than 0,5");
+    } else {
+    console.log("Lower than 0.5");
+    }
+ }
 
-if (random >= 0.5) {
-    alert("Greater than 0,5");
-    
-} else {
-    alert("Lower than 0.5");
-}
+ generateRandom();
 
 /*
 b) Crear una variable “Age” que contenga un número entero entre 0 y 100 y muestre los siguientes mensajes de alerta:
@@ -207,7 +209,7 @@ else if(age>75){
      una alerta utilizando cada una de las palabras.
 */
 
-var words= ['carlos','hector','alberto','pedro','jorge'];
+var words=['carlos','hector','alberto','pedro','jorge'];
 var cantWord=words.length;
 
 for (var contador=0 ;contador<cantWord;
@@ -218,15 +220,12 @@ for (var contador=0 ;contador<cantWord;
     b)Al array anterior convertir la primera letra de cada palabra en mayúscula y mostrar una alerta por cada palabra modificada.
 */
 
-//En este ejercicio por cada alerta que aparece me salta la primer letra en mayuscula de cada indice del arreglo
-
-for (var contador=0 ;contador<cantWord;
-    contador++){
-        words[contador] = words[contador].charAt(0).toUpperCase()+ words[contador].slice(1);
-        alert(words)
-    }
-
-
+for (var contador=0; contador<cantWord;
+        contador++)
+                {
+                words[contador] = words[contador].substring(0,1).toUpperCase()+ words[contador].substring(1).toLowerCase();
+                alert(words[contador]);
+                } 
 /*
     c)Crear una variable llamada “sentence” que tenga un string vacío, luego al array del punto a) recorrerlo con un bucle for para
      ir guardando cada palabra dentro de la variable sentence. Al final mostrar una única alerta con la cadena completa.
@@ -250,7 +249,8 @@ for (var i=0 ; i<10;
         nArray.push(i);
     }
     console.log(nArray);
-//Funciones
+
+    //Funciones
 
 /*
     a)Crear una función suma que reciba dos valores numéricos y retorne el resultado. Ejecutar la función y guardar el resultado en una variable,
@@ -261,7 +261,7 @@ function suma(valor1,valor2) {
     var resultado=valor1+valor2;
     return resultado;
     }
-var mensaje= suma(10,20);
+var mensaje= suma(10,10)
     console.log(mensaje)
 
  /*
@@ -269,42 +269,64 @@ var mensaje= suma(10,20);
     de los parámetros tiene error y retornar el valor NaN como resultado.
 */
 function suma(valor1,valor2) {
-    if (isNaN(valor1,valor2)) {
+    if (isNaN(valor1) || isNaN(valor2)){
         alert('uno de los valores no es un numero');
       }
-      var resultado=valor1+valor2;
-    return resultado;
+    return NaN;
     }
 
-var mensaje= suma('n',20);
-console.log(mensaje)
+var mensaje2= suma('n');
+console.log(mensaje2)
     
 /*
     c) Crear una función validate integer que reciba un número como parámetro y devuelva verdadero si es un número entero.
 */
-function esEntero(numero) {
-    var numero =10;
-    if (Number.isInteger(numero)) {
-      return true;
-  }}
+function validateInteger(x){
+   return (Number.isInteger(x))
+    }
 
+console.log(validateInteger(10));
 
 /*
     d)A la función suma del ejercicio 6b) agregarle una llamada que valide que los números sean enteros. En caso que haya decimales
      mostrar un alerta con el error y retorna el número convertido a entero (redondeado).
 */
-    /*
-    function suma(valor1,valor2) {
-    if (isNaN(valor1,valor2)) {
-        alert('uno de los valores no es un numero');
-      }
-      if else(Number.isInteger(valor1,valor2))
-      var resultado=valor1+valor2;
-    return resultado;
-    } <---------me falta continuar
-    */
 
-
+   function suma(valor1,valor2){
+    if (isNaN(valor1) || isNaN(valor2)){
+        alert ('uno de los valores no es un numero');
+        return NaN;
+    } else if (Number.isInteger(valor1) && Number.isInteger(valor2)){
+        return valor1 + valor2;
+    } else {
+        alert ('uno de los valores es decimal');
+        return Math.round(valor1,valor2);
+    }
+}
+var mensaje3=suma(20.5);
+console.log(mensaje3);
+    
 /*
     e)Convertir la validación del ejercicio 6b) en una función separada y llamarla dentro de la función suma probando que todo siga funcionando igual.
 */
+
+function validar(valor1,valor2){
+    if (isNaN(valor1) || isNaN(valor2)){
+        alert ('uno de los valores no es un numero');
+        return NaN;
+    } else{
+        return 'los valores son numeros';
+    }
+}
+
+function suma(valor1,valor2){
+    var resultado = validar(valor1,valor2);
+    if (resultado === 'los valores son numeros'){
+     return valor1 + valor2;
+    } else{
+    return 'uno de los valores no es un numero';
+        }
+    }
+
+var mensaje4=suma(20,20);
+console.log(mensaje4);
