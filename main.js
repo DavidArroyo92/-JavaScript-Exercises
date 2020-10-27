@@ -235,7 +235,7 @@ for (var contador=0 ;contador<cantWord;
     contador++){
         sentence.push(words[contador]);
     }
-   alert(sentence);
+alert(sentence);
 /*
     d)Crear una array vacío y con un bucle for de 10 repeticiones llenar el array con el número de la repetición, es decir que al final
      de la ejecución del bucle for deberia haber 10 elementos dentro del array, desde el número 0 hasta al numero 9. Mostrar por la 
@@ -248,7 +248,7 @@ for (var i=0 ; i<10;
     i++){
         nArray.push(i);
     }
-    console.log(nArray);
+console.log(nArray);
 
     //Funciones
 
@@ -260,9 +260,9 @@ for (var i=0 ; i<10;
 function suma(valor1,valor2) {
     var resultado=valor1+valor2;
     return resultado;
-    }
+}
 var mensaje= suma(10,10)
-    console.log(mensaje)
+console.log(mensaje)
 
  /*
     b)A la función suma anterior, agregarle una validación para controlar si alguno de los parámetros no es un número, mostrar una alerta aclarando que uno 
@@ -273,7 +273,7 @@ function suma(valor1,valor2) {
         alert('uno de los valores no es un numero');
       }
     return NaN;
-    }
+}
 
 var mensaje2= suma('n');
 console.log(mensaje2)
@@ -283,7 +283,7 @@ console.log(mensaje2)
 */
 function validateInteger(x){
    return (Number.isInteger(x))
-    }
+}
 
 console.log(validateInteger(10));
 
@@ -292,7 +292,7 @@ console.log(validateInteger(10));
      mostrar un alerta con el error y retorna el número convertido a entero (redondeado).
 */
 
-   function suma(valor1,valor2){
+function suma(valor1,valor2){
     if (isNaN(valor1) || isNaN(valor2)){
         alert ('uno de los valores no es un numero');
         return NaN;
@@ -326,7 +326,7 @@ function suma(valor1,valor2){
     } else{
     return 'uno de los valores no es un numero';
         }
-    }
+}
 
 var mensaje4=suma(20,20);
 console.log(mensaje4);
