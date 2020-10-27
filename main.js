@@ -310,22 +310,15 @@ console.log(mensaje3);
     e)Convertir la validación del ejercicio 6b) en una función separada y llamarla dentro de la función suma probando que todo siga funcionando igual.
 */
 
-function validar(valor1,valor2){
-    if (isNaN(valor1) || isNaN(valor2)){
-        alert ('uno de los valores no es un numero');
-        return NaN;
-    } else{
-        return 'los valores son numeros';
-    }
+function isNumber(argument){
+    return typeof argument === 'number' && !isNaN(argument);
 }
-
-function suma(valor1,valor2){
-    var resultado = validar(valor1,valor2);
-    if (resultado === 'los valores son numeros'){
-     return valor1 + valor2;
+function suma(valor1, valor2) {
+    if (isNumber(valor1) && isNumber(valor2)) {
+        return valor1 + valor2;
     } else{
-    return 'uno de los valores no es un numero';
-        }
+        return 'uno de los valores no es un numero';
+    }
 }
 
 var mensaje4=suma(20,20);
